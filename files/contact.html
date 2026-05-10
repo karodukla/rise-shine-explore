@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt — Rise Shine Explore</title>
+  <meta name="description" content="Zapisz się na nasz newsletter lub wyślij nam wiadomość. Sign up or get in touch with Rise Shine Explore.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ---- Success message ---- */
+    .form-success {
+      display: none;
+      background: var(--sage-pale);
+      border: 1px solid var(--sage);
+      border-radius: var(--radius-sm);
+      padding: 24px 28px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .form-success.visible { display: block; }
+    .form-success p { font-size: .95rem; opacity: .9; color: var(--sage-dark); }
+    .form-success strong { color: var(--sage-dark); display: block; font-size: 1.1rem; margin-bottom: 8px; }
+
+    /* ---- FAQ ---- */
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid rgba(196,112,79,.14);
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--brown);
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color var(--transition);
+    }
+    .faq-question:hover { color: var(--terracotta); }
+    .faq-question .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(196,112,79,.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: .9rem;
+      color: var(--terracotta);
+      transition: transform var(--transition), background var(--transition);
+    }
+    .faq-question[aria-expanded="true"] .faq-icon {
+      transform: rotate(45deg);
+      background: var(--terracotta);
+      color: #fff;
+      border-color: var(--terracotta);
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 0 22px;
+    }
+    .faq-answer.open { display: block; }
+    .faq-answer p { font-size: .93rem; opacity: .8; line-height: 1.78; }
+
+    /* ---- Map placeholder ---- */
+    .contact-map-placeholder {
+      width: 100%;
+      height: 180px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      background: var(--cream-dark);
+      border: 1px solid rgba(196,112,79,.15);
+    }
+    .contact-map-placeholder p {
+      font-size: .82rem;
+      opacity: .55;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo"><img src="logo.avif" alt="Rise Shine Explore" class="nav__logo-img"></a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html"    data-en="Home"     data-pl="Strona Główna">Strona Główna</a></li>
+        <li><a href="retreats.html" data-en="Retreats" data-pl="Retreaty">Retreaty</a></li>
+        <li><a href="about.html"    data-en="About Us" data-pl="O Nas">O Nas</a></li>
+        <li><a href="gallery.html"  data-en="Gallery"  data-pl="Galeria">Galeria</a></li>
+        <li><a href="contact.html"  data-en="Contact"  data-pl="Kontakt">Kontakt</a></li>
+      </ul>
+      <button class="nav__lang" id="langToggle">EN</button>
+      <button class="nav__hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <header class="page-hero">
+    <div class="page-hero__inner">
+      <span class="eyebrow" data-en="Get in Touch" data-pl="Skontaktuj Się">Skontaktuj Się</span>
+      <h1 data-en="Contact &amp; Sign Up" data-pl="Kontakt i Zapisy">Kontakt i Zapisy</h1>
+      <p class="lead" data-en="Ready to join us? Have questions? We'd love to hear from you. Reach out in Polish or English — we speak both." data-pl="Gotowa, żeby dołączyć? Masz pytania? Chętnie od Ciebie usłyszymy. Napisz po polsku lub angielsku — mówimy w obu językach.">Gotowa, żeby dołączyć? Masz pytania? Chętnie od Ciebie usłyszymy. Napisz po polsku lub angielsku — mówimy w obu językach.</p>
+    </div>
+  </header>
+
+  <!-- ===== CONTACT LAYOUT ===== -->
+  <section class="section" aria-label="Kontakt">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- INFO SIDE -->
+        <div class="contact-info">
+          <h2 class="contact-info__heading" data-en="Let's Connect" data-pl="Połączmy Się">Połączmy Się</h2>
+          <p class="contact-info__intro" data-en="Whether you want to sign up for an upcoming retreat, join our waitlist, ask a question, or simply say hello — we're here. All messages are answered personally by Asia, Ela, or Magda." data-pl="Czy chcesz zapisać się na nadchodzący retreat, dołączyć do listy oczekujących, zadać pytanie, czy po prostu się przywitać — jesteśmy tutaj. Na wszystkie wiadomości odpowiada osobiście Asia, Ela lub Magda.">Czy chcesz zapisać się na nadchodzący retreat, dołączyć do listy oczekujących, zadać pytanie, czy po prostu się przywitać — jesteśmy tutaj. Na wszystkie wiadomości odpowiada osobiście Asia, Ela lub Magda.</p>
+
+          <div class="contact-info__item">
+            <div class="contact-info__icon" aria-hidden="true">✉</div>
+            <div class="contact-info__text">
+              <strong data-en="Email" data-pl="Email">Email</strong>
+              <a href="mailto:risenexplore@gmail.com" class="contact-info__text">risenexplore@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-info__item">
+            <div class="contact-info__icon" aria-hidden="true">📱</div>
+            <div class="contact-info__text">
+              <strong data-en="Phone / WhatsApp" data-pl="Telefon / WhatsApp">Telefon / WhatsApp</strong>
+              <span>
+                <a href="tel:+17733704464">773-370-4464</a><br>
+                <a href="tel:+17736151492">773-615-1492</a><br>
+                <a href="tel:+17733199294">773-319-9294</a>
+              </span>
+            </div>
+          </div>
+
+          <div class="contact-info__item">
+            <div class="contact-info__icon" aria-hidden="true">📸</div>
+            <div class="contact-info__text">
+              <strong data-en="Instagram" data-pl="Instagram">Instagram</strong>
+              <a href="https://instagram.com/rise_shine_explore" target="_blank" rel="noopener">@rise_shine_explore</a>
+            </div>
+          </div>
+
+          <div class="contact-info__item">
+            <div class="contact-info__icon" aria-hidden="true">🕐</div>
+            <div class="contact-info__text">
+              <strong data-en="Response Time" data-pl="Czas Odpowiedzi">Czas Odpowiedzi</strong>
+              <span data-en="We typically respond within 24–48 hours." data-pl="Zazwyczaj odpowiadamy w ciągu 24–48 godzin.">Zazwyczaj odpowiadamy w ciągu 24–48 godzin.</span>
+            </div>
+          </div>
+
+          <div class="contact-info__item">
+            <div class="contact-info__icon" aria-hidden="true">🌐</div>
+            <div class="contact-info__text">
+              <strong data-en="Languages" data-pl="Języki">Języki</strong>
+              <span data-en="Polish (primary) · English" data-pl="Polski (główny) · Angielski">Polski (główny) · Angielski</span>
+            </div>
+          </div>
+
+          <!-- Google Map embed -->
+          <div class="contact-map" aria-label="Lokalizacje organizatorek">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26716.54!2d-111.7609!3d34.8697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872d5b2b2a6e7fbd%3A0x8e94fe3a15bcc849!2sSedona%2C%20AZ!5e0!3m2!1sen!2sus!4v1715000000000"
+              width="100%"
+              height="220"
+              style="border:0;border-radius:8px;display:block;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Sedona, Arizona"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- FORM SIDE -->
+        <div class="form-wrap">
+          <h3 data-en="Send a Message" data-pl="Wyślij Wiadomość">Wyślij Wiadomość</h3>
+          <p class="form-intro" data-en="Fill in the form below and we'll get back to you personally. For retreat sign-ups, please mention which retreat you're interested in." data-pl="Wypełnij poniższy formularz, a odezwiemy się do Ciebie osobiście. Przy zapisach na retreat proszę podać, który retreat Cię interesuje.">Wypełnij poniższy formularz, a odezwiemy się do Ciebie osobiście. Przy zapisach na retreat proszę podać, który retreat Cię interesuje.</p>
+
+          <!-- Formspree form — replace YOUR_FORM_ID with your actual Formspree ID -->
+          <form
+            id="contactForm"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+            novalidate
+          >
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="firstName" data-en="First Name *" data-pl="Imię *">Imię *</label>
+                <input
+                  class="form__input"
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  required
+                  autocomplete="given-name"
+                  data-en="Your first name"
+                  data-pl="Twoje imię"
+                  placeholder="Twoje imię"
+                >
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="lastName" data-en="Last Name" data-pl="Nazwisko">Nazwisko</label>
+                <input
+                  class="form__input"
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  autocomplete="family-name"
+                  data-en="Your last name"
+                  data-pl="Twoje nazwisko"
+                  placeholder="Twoje nazwisko"
+                >
+              </div>
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="email" data-en="Email Address *" data-pl="Adres Email *">Adres Email *</label>
+              <input
+                class="form__input"
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                data-en="your@email.com"
+                data-pl="twoj@email.com"
+                placeholder="twoj@email.com"
+              >
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="phone" data-en="Phone Number (optional)" data-pl="Numer Telefonu (opcjonalnie)">Numer Telefonu (opcjonalnie)</label>
+              <input
+                class="form__input"
+                type="tel"
+                id="phone"
+                name="phone"
+                autocomplete="tel"
+                data-en="+1 (555) 000-0000"
+                data-pl="+1 (555) 000-0000"
+                placeholder="+1 (555) 000-0000"
+              >
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="retreat" data-en="Interested In" data-pl="Interesuję się">Interesuję się</label>
+              <select class="form__select" id="retreat" name="retreat">
+                <option value="" data-en="-- Select a retreat or topic --" data-pl="-- Wybierz retreat lub temat --">-- Wybierz retreat lub temat --</option>
+                <option value="zion-2025"    data-en="Zion National Park — May 14–17"      data-pl="Park Zion — 14–17 maja">Park Zion — 14–17 maja</option>
+                <option value="olympic-2025" data-en="Olympic National Park — June 11–14"  data-pl="Park Olympic — 11–14 czerwca">Park Olympic — 11–14 czerwca</option>
+                <option value="future"       data-en="Future Retreat — Notify Me"          data-pl="Przyszły Retreat — Powiadom Mnie">Przyszły Retreat — Powiadom Mnie</option>
+                <option value="general"      data-en="General Question"                    data-pl="Ogólne Pytanie">Ogólne Pytanie</option>
+                <option value="other"        data-en="Other"                               data-pl="Inne">Inne</option>
+              </select>
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="message" data-en="Your Message (optional)" data-pl="Twoja Wiadomość (opcjonalnie)">Twoja Wiadomość (opcjonalnie)</label>
+              <textarea
+                class="form__textarea"
+                id="message"
+                name="message"
+                data-en="Tell us a little about yourself and what draws you to our retreats…"
+                data-pl="Opowiedz nam trochę o sobie i co przyciąga Cię do naszych retreatów…"
+                placeholder="Opowiedz nam trochę o sobie i co przyciąga Cię do naszych retreatów…"
+              ></textarea>
+            </div>
+
+            <!-- Honeypot for spam protection -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="_subject" value="Nowe zgłoszenie — Rise Shine Explore">
+
+            <button type="submit" class="btn btn--primary form__submit" data-en="Send Message" data-pl="Wyślij Wiadomość">Wyślij Wiadomość</button>
+
+            <p class="form__note" data-en="By submitting you agree to be contacted regarding Rise Shine Explore retreats. We respect your privacy and will never share your data." data-pl="Przesyłając formularz wyrażasz zgodę na kontakt w sprawie retreatów Rise Shine Explore. Szanujemy Twoją prywatność i nigdy nie udostępnimy Twoich danych.">Przesyłając formularz wyrażasz zgodę na kontakt w sprawie retreatów Rise Shine Explore. Szanujemy Twoją prywatność i nigdy nie udostępnimy Twoich danych.</p>
+          </form>
+
+          <div class="form-success" id="formSuccess" role="alert">
+            <strong data-en="Message Sent! 🌿" data-pl="Wiadomość Wysłana! 🌿">Wiadomość Wysłana! 🌿</strong>
+            <p data-en="Thank you for reaching out. One of us — Asia, Ela, or Magda — will be in touch with you personally within 24–48 hours." data-pl="Dziękujemy za kontakt. Jedna z nas — Asia, Ela lub Magda — odezwie się do Ciebie osobiście w ciągu 24–48 godzin.">Dziękujemy za kontakt. Jedna z nas — Asia, Ela lub Magda — odezwie się do Ciebie osobiście w ciągu 24–48 godzin.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section section--alt" aria-label="Często zadawane pytania">
+    <div class="container">
+      <div class="section-header animate-on-scroll animate-fade-up">
+        <span class="eyebrow" data-en="Common Questions" data-pl="Częste Pytania">Częste Pytania</span>
+        <h2 data-en="FAQ" data-pl="FAQ">FAQ</h2>
+      </div>
+
+      <div class="faq-list" role="list">
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="Do I need to be an experienced yogi or hiker?" data-pl="Czy muszę być doświadczoną joginką lub turystką?">Czy muszę być doświadczoną joginką lub turystką?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-en="Not at all. Our retreats welcome women of all experience levels. Yoga sessions are adaptable for beginners, and hikes are selected to be accessible while still immersive in nature. If you can walk and breathe, you belong here." data-pl="Absolutnie nie. Nasze retreaty witają kobiety na wszystkich poziomach zaawansowania. Zajęcia jogi są dostosowane dla początkujących, a wędrówki są dobierane tak, by były dostępne, a jednocześnie głęboko zanurzające w naturę. Jeśli możesz chodzić i oddychać, jesteś tu na swoim miejscu.">Absolutnie nie. Nasze retreaty witają kobiety na wszystkich poziomach zaawansowania. Zajęcia jogi są dostosowane dla początkujących, a wędrówki są dobierane tak, by były dostępne, a jednocześnie głęboko zanurzające w naturę. Jeśli możesz chodzić i oddychać, jesteś tu na swoim miejscu.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="Are the retreats only for Polish-speaking women?" data-pl="Czy retreaty są tylko dla kobiet mówiących po polsku?">Czy retreaty są tylko dla kobiet mówiących po polsku?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-en="Sessions are conducted primarily in Polish, but English support is always available. Women from all backgrounds are welcome — the Polish-language aspect is a gift for those who miss speaking their native tongue, not a barrier for anyone else." data-pl="Sesje prowadzone są głównie po polsku, ale wsparcie angielskie jest zawsze dostępne. Kobiety ze wszystkich środowisk są mile widziane — aspekt polskojęzyczny jest darem dla tych, które tęsknią za mówieniem w swoim ojczystym języku, a nie barierą dla innych.">Sesje prowadzone są głównie po polsku, ale wsparcie angielskie jest zawsze dostępne. Kobiety ze wszystkich środowisk są mile widziane — aspekt polskojęzyczny jest darem dla tych, które tęsknią za mówieniem w swoim ojczystym języku, a nie barierą dla innych.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="What is the group size?" data-pl="Jaka jest wielkość grupy?">Jaka jest wielkość grupy?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-en="We keep our retreats intimate — maximum 12 women per retreat. This ensures each participant receives personal attention and the group remains a true circle rather than a crowd." data-pl="Nasze retreaty są intymne — maksymalnie 12 kobiet na retreat. Dzięki temu każda uczestniczka otrzymuje osobistą uwagę, a grupa pozostaje prawdziwym kręgiem, a nie tłumem.">Nasze retreaty są intymne — maksymalnie 12 kobiet na retreat. Dzięki temu każda uczestniczka otrzymuje osobistą uwagę, a grupa pozostaje prawdziwym kręgiem, a nie tłumem.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="What is included in the retreat price?" data-pl="Co jest wliczone w cenę retreatu?">Co jest wliczone w cenę retreatu?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-en="Pricing details are shared when you sign up. Typically retreats include accommodation, all guided activities (yoga, meditation, hikes), and some meals. Transportation to the park is typically arranged separately. Contact us for the full breakdown for any specific retreat." data-pl="Szczegóły cenowe są udostępniane przy zapisach. Zazwyczaj retreaty obejmują zakwaterowanie, wszystkie prowadzone aktywności (joga, medytacja, wędrówki) i część posiłków. Transport do parku jest zazwyczaj organizowany osobno. Skontaktuj się z nami po pełny wykaz dla konkretnego retreatu.">Szczegóły cenowe są udostępniane przy zapisach. Zazwyczaj retreaty obejmują zakwaterowanie, wszystkie prowadzone aktywności (joga, medytacja, wędrówki) i część posiłków. Transport do parku jest zazwyczaj organizowany osobno. Skontaktuj się z nami po pełny wykaz dla konkretnego retreatu.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="How far in advance should I sign up?" data-pl="Jak wcześnie powinnam się zapisać?">Jak wcześnie powinnam się zapisać?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-en="As early as possible — our Sedona retreat sold out within days of announcement. We recommend signing up or joining the waitlist as soon as you see a retreat that calls to you. Newsletter subscribers are always notified first." data-pl="Jak najwcześniej — nasz retreat w Sedonie wyprzedał się w ciągu kilku dni od ogłoszenia. Zalecamy zapisanie się lub dołączenie do listy oczekujących, gdy tylko zobaczysz retreat, który do Ciebie przemawia. Subskrybenci newslettera są zawsze powiadamiani jako pierwsi.">Jak najwcześniej — nasz retreat w Sedonie wyprzedał się w ciągu kilku dni od ogłoszenia. Zalecamy zapisanie się lub dołączenie do listy oczekujących, gdy tylko zobaczysz retreat, który do Ciebie przemawia. Subskrybenci newslettera są zawsze powiadamiani jako pierwsi.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INSTAGRAM CTA ===== -->
+  <div class="instagram-cta">
+    <span class="eyebrow" data-en="Follow Along" data-pl="Obserwuj Nas">Obserwuj Nas</span>
+    <h2 data-en="Find Us on Instagram" data-pl="Znajdź Nas na Instagramie">Znajdź Nas na Instagramie</h2>
+    <a href="https://instagram.com/rise_shine_explore" target="_blank" rel="noopener" class="instagram-cta__handle">@rise_shine_explore</a>
+    <p data-en="Daily inspiration, retreat updates, and a glimpse into the wild places we love." data-pl="Codzienna inspiracja, aktualności z retreatów i spojrzenie na dzikie miejsca, które kochamy.">Codzienna inspiracja, aktualności z retreatów i spojrzenie na dzikie miejsca, które kochamy.</p>
+    <a href="https://instagram.com/rise_shine_explore" target="_blank" rel="noopener" class="btn btn--ghost" data-en="Follow @rise_shine_explore" data-pl="Obserwuj @rise_shine_explore">Obserwuj @rise_shine_explore</a>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">Rise <span class="tilde">~</span> Shine <span class="tilde">~</span> Explore</a>
+          <p data-en="Nature and yoga retreats for Polish women in the USA. Come as you are. Return transformed." data-pl="Retreaty przyrodnicze i jogi dla Polek w USA. Przyjedź taka, jaka jesteś. Wróć odmieniona.">Retreaty przyrodnicze i jogi dla Polek w USA. Przyjedź taka, jaka jesteś. Wróć odmieniona.</p>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-title" data-en="Pages" data-pl="Strony">Strony</span>
+          <ul>
+            <li><a href="index.html"    data-en="Home"     data-pl="Strona Główna">Strona Główna</a></li>
+            <li><a href="retreats.html" data-en="Retreats" data-pl="Retreaty">Retreaty</a></li>
+            <li><a href="about.html"    data-en="About Us" data-pl="O Nas">O Nas</a></li>
+            <li><a href="gallery.html"  data-en="Gallery"  data-pl="Galeria">Galeria</a></li>
+            <li><a href="contact.html"  data-en="Contact"  data-pl="Kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-title" data-en="Contact" data-pl="Kontakt">Kontakt</span>
+          <p class="footer__contact-item"><a href="mailto:risenexplore@gmail.com">risenexplore@gmail.com</a></p>
+          <p class="footer__contact-item"><a href="tel:+17733704464">773-370-4464</a></p>
+          <p class="footer__contact-item"><a href="tel:+17736151492">773-615-1492</a></p>
+          <p class="footer__contact-item"><a href="tel:+17733199294">773-319-9294</a></p>
+          <p class="footer__contact-item"><a href="https://instagram.com/rise_shine_explore" target="_blank" rel="noopener">@rise_shine_explore</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy" data-en="© 2025 Rise Shine Explore. All rights reserved." data-pl="© 2025 Rise Shine Explore. Wszelkie prawa zastrzeżone.">© 2025 Rise Shine Explore. Wszelkie prawa zastrzeżone.</p>
+        <div class="footer__social">
+          <a href="https://instagram.com/rise_shine_explore" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:risenexplore@gmail.com">risenexplore@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script src="main.js"></script>
+  <script>
+    /* ---- FAQ accordion ---- */
+    document.querySelectorAll('.faq-question').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        // Close all
+        document.querySelectorAll('.faq-question').forEach(function (b) {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.classList.remove('open');
+        });
+        // Open clicked (unless it was already open)
+        if (!expanded) {
+          this.setAttribute('aria-expanded', 'true');
+          this.nextElementSibling.classList.add('open');
+        }
+      });
+    });
+
+    /* ---- Form: Formspree AJAX submission ---- */
+    var form    = document.getElementById('contactForm');
+    var success = document.getElementById('formSuccess');
+    var submitBtn = form ? form.querySelector('[type="submit"]') : null;
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var lang = window.RSELang ? window.RSELang.get() : 'pl';
+        var submitLabel = lang === 'en' ? 'Sending…' : 'Wysyłanie…';
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = submitLabel; }
+
+        var data = new FormData(form);
+
+        fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(function (res) {
+          if (res.ok) {
+            form.style.display = 'none';
+            success.classList.add('visible');
+            if (window.RSELang) window.RSELang.set(window.RSELang.get(), true);
+          } else {
+            throw new Error('Network response was not ok');
+          }
+        })
+        .catch(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = lang === 'en' ? 'Send Message' : 'Wyślij Wiadomość';
+          }
+          alert(lang === 'en'
+            ? 'Something went wrong. Please email us directly at risenexplore@gmail.com'
+            : 'Coś poszło nie tak. Napisz do nas bezpośrednio na risenexplore@gmail.com'
+          );
+        });
+      });
+    }
+
+    /* ---- Re-apply language to select options on language change ---- */
+    document.addEventListener('languageChanged', function (e) {
+      var lang = e.detail.lang;
+      document.querySelectorAll('select option[data-en][data-pl]').forEach(function (opt) {
+        opt.textContent = opt.dataset[lang] || opt.textContent;
+      });
+    });
+  </script>
+</body>
+</html>

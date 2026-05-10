@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Nas — Rise Shine Explore</title>
+  <meta name="description" content="Poznaj Asię, Elę i Magdę — trzy polskie kobiety stojące za Rise Shine Explore. Meet the women behind the retreats.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ---- Values grid ---- */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .value-card {
+      background: var(--offwhite);
+      border: 1px solid rgba(196,112,79,.15);
+      border-radius: var(--radius-sm);
+      padding: 32px 28px;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .value-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .value-card__icon {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .value-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+    .value-card p {
+      font-size: .88rem;
+      opacity: .75;
+      line-height: 1.7;
+    }
+
+    /* ---- What to expect ---- */
+    .expect-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .expect-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 24px;
+      background: rgba(250,247,242,.06);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(250,247,242,.1);
+    }
+    .expect-item__num {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--terracotta-light);
+      font-style: italic;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .expect-item h4 { color: var(--cream); font-size: 1rem; margin-bottom: 4px; }
+    .expect-item p  { font-size: .85rem; color: var(--cream); opacity: .75; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo"><img src="logo.avif" alt="Rise Shine Explore" class="nav__logo-img"></a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html"    data-en="Home"     data-pl="Strona Główna">Strona Główna</a></li>
+        <li><a href="retreats.html" data-en="Retreats" data-pl="Retreaty">Retreaty</a></li>
+        <li><a href="about.html"    data-en="About Us" data-pl="O Nas">O Nas</a></li>
+        <li><a href="gallery.html"  data-en="Gallery"  data-pl="Galeria">Galeria</a></li>
+        <li><a href="contact.html"  data-en="Contact"  data-pl="Kontakt">Kontakt</a></li>
+      </ul>
+      <button class="nav__lang" id="langToggle">EN</button>
+      <button class="nav__hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <header class="page-hero">
+    <div class="page-hero__inner">
+      <span class="eyebrow" data-en="Our Story" data-pl="Nasza Historia">Nasza Historia</span>
+      <h1 data-en="About Us" data-pl="O Nas">O Nas</h1>
+      <p class="lead" data-en="Three Polish women. Three passions. One shared vision — to create a space where women can come home to themselves." data-pl="Trzy polskie kobiety. Trzy pasje. Jedna wspólna wizja — stworzyć przestrzeń, w której kobiety mogą wrócić do siebie.">Trzy polskie kobiety. Trzy pasje. Jedna wspólna wizja — stworzyć przestrzeń, w której kobiety mogą wrócić do siebie.</p>
+    </div>
+  </header>
+
+  <!-- ===== BRAND STORY ===== -->
+  <section class="section" aria-label="Historia marki">
+    <div class="container">
+      <div class="brand-story">
+        <div class="section-header" style="margin-bottom:64px;">
+          <span class="eyebrow" data-en="The Name Behind the Mission" data-pl="Nazwa Za Misją">Nazwa Za Misją</span>
+          <h2 data-en="Rise. Shine. Explore." data-pl="Wstań. Rozbłyśnij. Odkrywaj.">Wstań. Rozbłyśnij. Odkrywaj.</h2>
+        </div>
+
+        <div class="brand-pillar brand-pillar--rise animate-on-scroll animate-fade-up">
+          <span class="brand-pillar__letter">R</span>
+          <div class="brand-pillar__text">
+            <h3 class="brand-pillar__title" data-en="Rise" data-pl="Wstań">Wstań</h3>
+            <p class="brand-pillar__desc" data-en="To rise is to wake your inner energy — to lift yourself from the old limitations, old stories, and old versions of yourself that no longer serve your growth. It's not about forcing yourself upward. It's about letting go of what holds you down. When we rise, we don't leave ourselves behind. We finally arrive." data-pl="Wstać to obudzić swoją wewnętrzną energię — podnieść się z dawnych ograniczeń, starych historii i dawnych wersji siebie, które nie służą już Twojemu wzrostowi. To nie chodzi o zmuszanie siebie do bycia ponad. Chodzi o puszczenie tego, co Cię przytrzymuje. Kiedy wstajemy, nie zostawiamy siebie za sobą. W końcu przychodzimy.">Wstać to obudzić swoją wewnętrzną energię — podnieść się z dawnych ograniczeń, starych historii i dawnych wersji siebie, które nie służą już Twojemu wzrostowi. To nie chodzi o zmuszanie siebie do bycia ponad. Chodzi o puszczenie tego, co Cię przytrzymuje. Kiedy wstajemy, nie zostawiamy siebie za sobą. W końcu przychodzimy.</p>
+          </div>
+        </div>
+
+        <div class="brand-pillar brand-pillar--shine animate-on-scroll animate-fade-up">
+          <span class="brand-pillar__letter">S</span>
+          <div class="brand-pillar__text">
+            <h3 class="brand-pillar__title" data-en="Shine" data-pl="Rozbłyśnij">Rozbłyśnij</h3>
+            <p class="brand-pillar__desc" data-en="To shine is to allow yourself to glow — not from performance or pretense, but from the quiet, unshakeable confidence that comes from truly knowing yourself. Shine is not about being seen. It's about no longer dimming your light for the comfort of others. When you shine, the world around you gets brighter." data-pl="Rozbłysnąć to pozwolić sobie świecić — nie z powodu występu czy pozorów, ale z cichej, niezachwianej pewności siebie, która pochodzi z naprawdę poznania siebie. Rozbłyśnij to nie chodzi o bycie widzianą. Chodzi o to, by już nie przyćmiewać swojego światła dla komfortu innych. Kiedy świecisz, otaczający Cię świat staje się jaśniejszy.">Rozbłysnąć to pozwolić sobie świecić — nie z powodu występu czy pozorów, ale z cichej, niezachwianej pewności siebie, która pochodzi z naprawdę poznania siebie. Rozbłyśnij to nie chodzi o bycie widzianą. Chodzi o to, by już nie przyćmiewać swojego światła dla komfortu innych. Kiedy świecisz, otaczający Cię świat staje się jaśniejszy.</p>
+          </div>
+        </div>
+
+        <div class="brand-pillar brand-pillar--explore animate-on-scroll animate-fade-up">
+          <span class="brand-pillar__letter">E</span>
+          <div class="brand-pillar__text">
+            <h3 class="brand-pillar__title" data-en="Explore" data-pl="Odkrywaj">Odkrywaj</h3>
+            <p class="brand-pillar__desc" data-en="To explore is an invitation to journey — outward through breathtaking American landscapes and inward through stillness, breath, and the wisdom of your own body. Exploration is not about finding something new. It's about uncovering what was always already there. Wild nature has a way of stripping away everything unnecessary until only the essential remains." data-pl="Odkrywać to zaproszenie do podróży — na zewnątrz przez zapierające dech w piersiach amerykańskie krajobrazy i do wewnątrz przez ciszę, oddech i mądrość własnego ciała. Odkrywanie nie polega na znalezieniu czegoś nowego. Chodzi o odkrycie tego, co zawsze już tam było. Dzika natura ma sposób na odarcie ze wszystkiego zbędnego, aż pozostaje tylko to, co istotne.">Odkrywać to zaproszenie do podróży — na zewnątrz przez zapierające dech w piersiach amerykańskie krajobrazy i do wewnątrz przez ciszę, oddech i mądrość własnego ciała. Odkrywanie nie polega na znalezieniu czegoś nowego. Chodzi o odkrycie tego, co zawsze już tam było. Dzika natura ma sposób na odarcie ze wszystkiego zbędnego, aż pozostaje tylko to, co istotne.</p>
+          </div>
+        </div>
+
+        <div class="signature animate-on-scroll animate-fade-up">
+          <p class="signature__text">Asia, Ela &amp; Magda</p>
+          <span class="signature__sub" data-en="Founders, Rise Shine Explore" data-pl="Założycielki, Rise Shine Explore">Założycielki, Rise Shine Explore</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM ===== -->
+  <section class="section section--alt" aria-label="Zespół">
+    <div class="container">
+      <div class="section-header animate-on-scroll animate-fade-up">
+        <span class="eyebrow" data-en="Meet the Team" data-pl="Poznaj Zespół">Poznaj Zespół</span>
+        <h2 data-en="The Women Behind RSE" data-pl="Kobiety Za RSE">Kobiety Za RSE</h2>
+        <p data-en="Each of us brings a different gift. Together, we hold space for something larger than any of us alone." data-pl="Każda z nas wnosi inny dar. Razem tworzymy przestrzeń dla czegoś większego niż każda z nas osobno.">Każda z nas wnosi inny dar. Razem tworzymy przestrzeń dla czegoś większego niż każda z nas osobna.</p>
+      </div>
+
+      <div class="team-grid">
+
+        <!-- Asia -->
+        <article class="team-card animate-on-scroll animate-fade-up">
+          <div class="team-card__avatar">
+            <div class="team-card__avatar-inner">
+              <img src="images/team/asia.png" alt="Asia Grześkiewicz">
+            </div>
+          </div>
+          <h3 class="team-card__name">Asia Grześkiewicz</h3>
+          <span class="team-card__role" data-en="Spiritual Guide" data-pl="Przewodnik Duchowy">Przewodnik Duchowy</span>
+          <p class="team-card__location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span data-en="O'ahu, Hawai'i" data-pl="O'ahu, Hawaje">O'ahu, Hawaje</span>
+          </p>
+          <p class="team-card__bio" data-en="Asia is a spiritual guide and personal development enthusiast. Mother of little Leo (age 2), she lives on the Hawaiian island of O'ahu. She believes that true strength lives within each of us — it just needs to be awakened. At Rise Shine Explore, Asia leads meditations, mindfulness practices, and intention-setting spaces. Her warmth and deep presence create the safe container that makes everything else possible." data-pl="Asia jest duchowym przewodnikiem i pasjonatką rozwoju osobistego. Mama małego Lea (2 lata), mieszka na hawajskiej wyspie O'ahu. Wierzy, że prawdziwa siła tkwi w każdej z nas — trzeba jej tylko pozwolić się wybudzić. W Rise Shine Explore Asia prowadzi medytacje, ćwiczenia uważności i przestrzenie intencji. Jej ciepło i głęboka obecność tworzą bezpieczny kontener, który umożliwia wszystko inne.">Asia jest duchowym przewodnikiem i pasjonatką rozwoju osobistego. Mama małego Lea (2 lata), mieszka na hawajskiej wyspie O'ahu. Wierzy, że prawdziwa siła tkwi w każdej z nas — trzeba jej tylko pozwolić się wybudzić. W Rise Shine Explore Asia prowadzi medytacje, ćwiczenia uważności i przestrzenie intencji. Jej ciepło i głęboka obecność tworzą bezpieczny kontener, który umożliwia wszystko inne.</p>
+        </article>
+
+        <!-- Magdalena -->
+        <article class="team-card animate-on-scroll animate-fade-up delay-1">
+          <div class="team-card__avatar">
+            <div class="team-card__avatar-inner">
+              <img src="images/team/magda.jpg" alt="Magdalena Marenko">
+            </div>
+          </div>
+          <h3 class="team-card__name">Magdalena Marenko</h3>
+          <span class="team-card__role" data-en="Hiking Guide" data-pl="Przewodnik Wycieczek">Przewodnik Wycieczek</span>
+          <p class="team-card__location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span data-en="Des Plaines, Illinois" data-pl="Des Plaines, Illinois">Des Plaines, Illinois</span>
+          </p>
+          <p class="team-card__bio" data-en="Magda is a hiking guide with a genuine love for nature and trekking. She lives in Des Plaines, Illinois with her husband and beloved dachshund Freya. For years she has explored trails across North America and knows that every hike is a metaphor for life — sometimes hard, always worth it. At Rise Shine Explore, Magda leads our outdoor expeditions and makes sure every step feels safe and inspiring." data-pl="Magda to przewodnik wycieczek z prawdziwą miłością do natury i trekkingu. Mieszka w Des Plaines w stanie Illinois ze swoim mężem i ukochaną jamniczką Freyą. Od lat eksploruje szlaki Ameryki Północnej i wie, że każda wędrówka to metafora życia — czasem trudna, zawsze warta wysiłku. W Rise Shine Explore Magda prowadzi nasze wyprawy w teren i dba o to, by każdy krok był bezpieczny i inspirujący.">Magda to przewodnik wycieczek z prawdziwą miłością do natury i trekkingu. Mieszka w Des Plaines w stanie Illinois ze swoim mężem i ukochaną jamniczką Freyą. Od lat eksploruje szlaki Ameryki Północnej i wie, że każda wędrówka to metafora życia — czasem trudna, zawsze warta wysiłku. W Rise Shine Explore Magda prowadzi nasze wyprawy w teren i dba o to, by każdy krok był bezpieczny i inspirujący.</p>
+        </article>
+
+        <!-- Ela -->
+        <article class="team-card animate-on-scroll animate-fade-up delay-2">
+          <div class="team-card__avatar">
+            <div class="team-card__avatar-inner">
+              <img src="images/team/ela.png" alt="Ela Koc Stankiewicz">
+            </div>
+          </div>
+          <h3 class="team-card__name">Ela Koc Stankiewicz</h3>
+          <span class="team-card__role" data-en="Yoga Instructor" data-pl="Instruktorka Jogi">Instruktorka Jogi</span>
+          <p class="team-card__location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span data-en="O'ahu, Hawai'i (since July 2024)" data-pl="O'ahu, Hawaje (od lipca 2024)">O'ahu, Hawaje (od lipca 2024)</span>
+          </p>
+          <p class="team-card__bio" data-en="Ela is a yoga instructor and lover of energy work and spiritual development techniques. Since July 2024, she has lived on O'ahu with her partner and cat Sebastian. For Ela, yoga practice is not just movement — it's a path to deep self-knowledge. She weaves together physical practice, breathwork, and subtle energy techniques into experiences that leave you feeling both grounded and expanded. At Rise Shine Explore, Ela leads all yoga sessions and energy workshops." data-pl="Ela jest instruktorką jogi i miłośniczką pracy z energią oraz technik rozwoju duchowego. Od lipca 2024 roku mieszka na O'ahu z partnerem i kotem Sebastianem. Dla Eli praktyka jogi to nie tylko ruch — to droga do głębokiego poznania siebie. Splata praktykę fizyczną, pracę z oddechem i subtelne techniki energetyczne w doświadczenia, które sprawiają, że czujesz się zarówno uziemiona, jak i rozszerzona. W Rise Shine Explore Ela prowadzi wszystkie zajęcia jogi i warsztaty energetyczne.">Ela jest instruktorką jogi i miłośniczką pracy z energią oraz technik rozwoju duchowego. Od lipca 2024 roku mieszka na O'ahu z partnerem i kotem Sebastianem. Dla Eli praktyka jogi to nie tylko ruch — to droga do głębokiego poznania siebie. Splata praktykę fizyczną, pracę z oddechem i subtelne techniki energetyczne w doświadczenia, które sprawiają, że czujesz się zarówno uziemiona, jak i rozszerzona. W Rise Shine Explore Ela prowadzi wszystkie zajęcia jogi i warsztaty energetyczne.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT TO EXPECT ===== -->
+  <section class="section section--dark" aria-label="Czego się spodziewać">
+    <div class="container">
+      <div class="section-header animate-on-scroll animate-fade-up">
+        <span class="eyebrow" data-en="Every Retreat Includes" data-pl="Każdy Retreat Zawiera">Każdy Retreat Zawiera</span>
+        <h2 data-en="What to Expect" data-pl="Czego Się Spodziewać">Czego Się Spodziewać</h2>
+      </div>
+      <div class="expect-list">
+        <div class="expect-item animate-on-scroll animate-fade-up">
+          <span class="expect-item__num">01</span>
+          <div>
+            <h4 data-en="Daily Yoga & Breathwork" data-pl="Codzienna Joga i Praca z Oddechem">Codzienna Joga i Praca z Oddechem</h4>
+            <p data-en="Morning and evening practices tailored to all levels, held outdoors in nature." data-pl="Poranne i wieczorne praktyki dostosowane do wszystkich poziomów, prowadzone na świeżym powietrzu w naturze.">Poranne i wieczorne praktyki dostosowane do wszystkich poziomów, prowadzone na świeżym powietrzu w naturze.</p>
+          </div>
+        </div>
+        <div class="expect-item animate-on-scroll animate-fade-up delay-1">
+          <span class="expect-item__num">02</span>
+          <div>
+            <h4 data-en="Guided Hikes" data-pl="Prowadzone Wędrówki">Prowadzone Wędrówki</h4>
+            <p data-en="Expert-led trails through national park landscapes, adapted for different fitness levels." data-pl="Szlaki prowadzone przez eksperta przez krajobrazy parku narodowego, dostosowane do różnych poziomów sprawności.">Szlaki prowadzone przez eksperta przez krajobrazy parku narodowego, dostosowane do różnych poziomów sprawności.</p>
+          </div>
+        </div>
+        <div class="expect-item animate-on-scroll animate-fade-up delay-2">
+          <span class="expect-item__num">03</span>
+          <div>
+            <h4 data-en="Meditation & Inner Work" data-pl="Medytacja i Praca Wewnętrzna">Medytacja i Praca Wewnętrzna</h4>
+            <p data-en="Guided meditations, journaling, intention-setting, and spiritual reflection spaces." data-pl="Prowadzone medytacje, journaling, ustawianie intencji i przestrzenie refleksji duchowej.">Prowadzone medytacje, journaling, ustawianie intencji i przestrzenie refleksji duchowej.</p>
+          </div>
+        </div>
+        <div class="expect-item animate-on-scroll animate-fade-up">
+          <span class="expect-item__num">04</span>
+          <div>
+            <h4 data-en="Polish Community" data-pl="Polska Społeczność">Polska Społeczność</h4>
+            <p data-en="All sessions conducted in Polish — a rare and precious gift when you're far from home." data-pl="Wszystkie sesje prowadzone po polsku — rzadki i cenny dar, gdy jesteś daleko od domu.">Wszystkie sesje prowadzone po polsku — rzadki i cenny dar, gdy jesteś daleko od domu.</p>
+          </div>
+        </div>
+        <div class="expect-item animate-on-scroll animate-fade-up delay-1">
+          <span class="expect-item__num">05</span>
+          <div>
+            <h4 data-en="Small Group (max 12)" data-pl="Mała Grupa (maks. 12 osób)">Mała Grupa (maks. 12 osób)</h4>
+            <p data-en="Intimate enough to go deep. Big enough to feel the magic of collective energy." data-pl="Na tyle intymna, by się zagłębić. Na tyle duża, by poczuć magię zbiorowej energii.">Na tyle intymna, by się zagłębić. Na tyle duża, by poczuć magię zbiorowej energii.</p>
+          </div>
+        </div>
+        <div class="expect-item animate-on-scroll animate-fade-up delay-2">
+          <span class="expect-item__num">06</span>
+          <div>
+            <h4 data-en="Sacred Nature Immersion" data-pl="Sakralne Zanurzenie w Naturę">Sakralne Zanurzenie w Naturę</h4>
+            <p data-en="America's most breathtaking national parks as your classroom and cathedral." data-pl="Najbardziej zapierające dech parki narodowe Ameryki jako Twoja klasa i katedra.">Najbardziej zapierające dech parki narodowe Ameryki jako Twoja klasa i katedra.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VALUES ===== -->
+  <section class="section" aria-label="Nasze wartości">
+    <div class="container">
+      <div class="section-header animate-on-scroll animate-fade-up">
+        <span class="eyebrow" data-en="What We Stand For" data-pl="W Co Wierzymy">W Co Wierzymy</span>
+        <h2 data-en="Our Values" data-pl="Nasze Wartości">Nasze Wartości</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card animate-on-scroll animate-fade-up">
+          <span class="value-card__icon">🌿</span>
+          <h4 data-en="Nature as Teacher" data-pl="Natura jako Nauczyciel">Natura jako Nauczyciel</h4>
+          <p data-en="The wild has wisdom that no book can hold. We go outside to go inward." data-pl="Dzika przyroda ma mądrość, której żadna książka nie pomieści. Wychodzimy na zewnątrz, by wejść do środka.">Dzika przyroda ma mądrość, której żadna książka nie pomieści. Wychodzimy na zewnątrz, by wejść do środka.</p>
+        </div>
+        <div class="value-card animate-on-scroll animate-fade-up delay-1">
+          <span class="value-card__icon">🤝</span>
+          <h4 data-en="Sisterhood" data-pl="Siostrzeństwo">Siostrzeństwo</h4>
+          <p data-en="We believe in the transformative power of women holding space for each other — without judgment, without competition." data-pl="Wierzymy w transformującą moc kobiet tworzących dla siebie przestrzeń — bez oceniania, bez rywalizacji.">Wierzymy w transformującą moc kobiet tworzących dla siebie przestrzeń — bez oceniania, bez rywalizacji.</p>
+        </div>
+        <div class="value-card animate-on-scroll animate-fade-up delay-2">
+          <span class="value-card__icon">✨</span>
+          <h4 data-en="Authentic Growth" data-pl="Autentyczny Wzrost">Autentyczny Wzrost</h4>
+          <p data-en="We don't chase transformation for its own sake. We create conditions for it to happen — naturally, gently, irreversibly." data-pl="Nie gonimy za transformacją dla niej samej. Tworzymy warunki, by się wydarzyła — naturalnie, łagodnie, nieodwracalnie.">Nie gonimy za transformacją dla niej samej. Tworzymy warunki, by się wydarzyła — naturalnie, łagodnie, nieodwracalnie.</p>
+        </div>
+        <div class="value-card animate-on-scroll animate-fade-up">
+          <span class="value-card__icon">🌸</span>
+          <h4 data-en="Polish Identity" data-pl="Polska Tożsamość">Polska Tożsamość</h4>
+          <p data-en="Being Polish in America is a superpower. We celebrate that — speaking our language, sharing our culture, owning who we are." data-pl="Bycie Polką w Ameryce to supermoce. Świętujemy to — mówiąc swoim językiem, dzieląc naszą kulturę, będąc tym, kim jesteśmy.">Bycie Polką w Ameryce to supermoce. Świętujemy to — mówiąc swoim językiem, dzieląc naszą kulturę, będąc tym, kim jesteśmy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-band animate-on-scroll animate-fade-up">
+    <h2 data-en="Come Join Us" data-pl="Dołącz do Nas">Dołącz do Nas</h2>
+    <p data-en="A seat at the circle is waiting for you. Come as you are. Return transformed." data-pl="Miejsce w kręgu czeka na Ciebie. Przyjedź taka, jaka jesteś. Wróć odmieniona.">Miejsce w kręgu czeka na Ciebie. Przyjedź taka, jaka jesteś. Wróć odmieniona.</p>
+    <div class="btns">
+      <a href="retreats.html" class="btn btn--primary" data-en="View Retreats" data-pl="Zobacz Retreaty">Zobacz Retreaty</a>
+      <a href="contact.html"  class="btn btn--outline-brown" data-en="Get in Touch" data-pl="Skontaktuj się">Skontaktuj się</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">Rise <span class="tilde">~</span> Shine <span class="tilde">~</span> Explore</a>
+          <p data-en="Nature and yoga retreats for Polish women in the USA." data-pl="Retreaty przyrodnicze i jogi dla Polek w USA.">Retreaty przyrodnicze i jogi dla Polek w USA.</p>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-title" data-en="Pages" data-pl="Strony">Strony</span>
+          <ul>
+            <li><a href="index.html"    data-en="Home"     data-pl="Strona Główna">Strona Główna</a></li>
+            <li><a href="retreats.html" data-en="Retreats" data-pl="Retreaty">Retreaty</a></li>
+            <li><a href="about.html"    data-en="About Us" data-pl="O Nas">O Nas</a></li>
+            <li><a href="gallery.html"  data-en="Gallery"  data-pl="Galeria">Galeria</a></li>
+            <li><a href="contact.html"  data-en="Contact"  data-pl="Kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-title" data-en="Contact" data-pl="Kontakt">Kontakt</span>
+          <p class="footer__contact-item"><a href="mailto:risenexplore@gmail.com">risenexplore@gmail.com</a></p>
+          <p class="footer__contact-item"><a href="tel:+17733704464">773-370-4464</a></p>
+          <p class="footer__contact-item"><a href="https://instagram.com/rise_shine_explore" target="_blank" rel="noopener">@rise_shine_explore</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy" data-en="© 2025 Rise Shine Explore. All rights reserved." data-pl="© 2025 Rise Shine Explore. Wszelkie prawa zastrzeżone.">© 2025 Rise Shine Explore. Wszelkie prawa zastrzeżone.</p>
+        <div class="footer__social">
+          <a href="https://instagram.com/rise_shine_explore" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:risenexplore@gmail.com">risenexplore@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
