@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retreaty — Rise Shine Explore</title>
+  <meta name="description" content="Nadchodzące retreaty przyrodnicze i jogi dla Polek w USA. Sedona, Zion, Olympic i więcej.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ---- Retreat detail expand area ---- */
+    .retreat-full-card {
+      background: #fff;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+    }
+    .retreat-full-card__image {
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+    }
+    .retreat-full-card__image .full-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 5px 16px;
+      border-radius: 30px;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .retreat-full-card__image .full-badge.badge--soldout { background: var(--brown); color: #fff; }
+    .retreat-full-card__body {
+      padding: 40px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .retreat-full-card__body .retreat-card__state { font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 6px; }
+    .retreat-full-card__body h3 { font-size: clamp(1.8rem,3vw,2.6rem); margin-bottom: 8px; }
+    .retreat-full-card__body .date { font-size: .88rem; color: var(--sage-dark); font-weight: 600; margin-bottom: 20px; }
+    .retreat-full-card__body p { font-size: .95rem; margin-bottom: 16px; }
+    .soldout-notice {
+      background: var(--cream);
+      border: 1px solid rgba(44,24,16,.12);
+      border-radius: var(--radius-sm);
+      padding: 14px 20px;
+      font-size: .85rem;
+      opacity: .75;
+      margin-top: 8px;
+      font-style: italic;
+    }
+    @media (max-width: 768px) {
+      .retreat-full-card { grid-template-columns: 1fr; }
+      .retreat-full-card__image { min-height: 200px; }
+      .retreat-full-card__body { padding: 28px 24px; }
+    }
+
+    /* ---- Filter tabs ---- */
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .filter-tab {
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border: 1.5px solid rgba(44,24,16,.16);
+      color: var(--brown);
+      background: transparent;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .filter-tab.active,
+    .filter-tab:hover {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo"><img src="logo.avif" alt="Rise Shine Explore" class="nav__logo-img"></a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html"    data-en="Home"     data-pl="Strona Główna">Strona Główna</a></li>
+        <li><a href="retreats.html" data-en="Retreats" data-pl="Retreaty">Retreaty</a></li>
+        <li><a href="about.html"    data-en="About Us" data-pl="O Nas">O Nas</a></li>
+        <li><a href="gallery.html"  data-en="Gallery"  data-pl="Galeria">Galeria</a></li>
+        <li><a href="contact.html"  data-en="Contact"  data-pl="Kontakt">Kontakt</a></li>
+      </ul>
+      <button class="nav__lang" id="langToggle">EN</button>
+      <button class="nav__hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <header class="page-hero">
+    <div class="page-hero__inner">
+      <span class="eyebrow" data-en="2025 Season" data-pl="Sezon 2025">Sezon 2025</span>
+      <h1 data-en="Upcoming Retreats" data-pl="Nadchodzące Retreaty">Nadchodzące Retreaty</h1>
+      <p class="lead" data-en="Four days. Wild nature. Small group. All in Polish. Each retreat is limited to 12 women to ensure an intimate, transformative experience." data-pl="Cztery dni. Dzika natura. Mała grupa. Wszystko po polsku. Każdy retreat jest ograniczony do 12 kobiet, aby zapewnić intymne, transformujące doświadczenie.">Cztery dni. Dzika natura. Mała grupa. Wszystko po polsku. Każdy retreat jest ograniczony do 12 kobiet, aby zapewnić intymne, transformujące doświadczenie.</p>
+    </div>
+  </header>
+
+  <!-- ===== UPCOMING RETREATS (dynamic) ===== -->
+  <section class="section" aria-label="Nadchodzące retreaty">
+    <div class="container">
+      <div class="retreat-grid" id="retreatGrid">
+        <!-- Cards injected by main.js -->
+        <noscript><p style="text-align:center;padding:40px;">Włącz JavaScript, aby zobaczyć retreaty.</p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornamental-divider container">
+    <span>✦</span>
+  </div>
+
+  <!-- ===== PAST RETREAT: SEDONA ===== -->
+  <section class="section section--alt" aria-label="Minione retreaty">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow" data-en="Past Retreats" data-pl="Minione Retreaty">Minione Retreaty</span>
+        <h2 data-en="Where We've Been" data-pl="Gdzie Byłyśmy">Gdzie Byłyśmy</h2>
+        <p data-en="A look back at the magic we've already created together." data-pl="Spojrzenie wstecz na magię, którą już razem stworzyłyśmy.">Spojrzenie wstecz na magię, którą już razem stworzyłyśmy.</p>
+      </div>
+
+      <div class="retreat-full-card">
+        <div class="retreat-full-card__image" style="background-image:url('images/sedona1/sedona1-01.jpg');background-size:cover;background-position:center;">
+          <span class="full-badge badge--soldout" data-en="Sold Out" data-pl="Wyprzedane">Wyprzedane</span>
+        </div>
+        <div class="retreat-full-card__body">
+          <p class="retreat-card__state" data-en="Red Rock Country, Arizona" data-pl="Red Rock Country, Arizona">Red Rock Country, Arizona</p>
+          <h3 data-en="Sedona" data-pl="Sedona">Sedona</h3>
+          <p class="date" data-en="📅 March 5–8, 2025" data-pl="📅 5–8 marca 2025">📅 5–8 marca 2025</p>
+          <p data-en="Four transformative days among Sedona's legendary red rock formations. We explored sacred vortex sites, practiced sunrise yoga at Cathedral Rock, and gathered for evening sound healing ceremonies. This retreat sold out within days — a testament to the magic we create together." data-pl="Cztery transformujące dni wśród legendarnych czerwonych skał Sedony. Odkrywałyśmy święte miejsca vortexów, praktykowałyśmy jogę o wschodzie słońca przy Cathedral Rock i gromadziłyśmy się na wieczornych ceremoniach uzdrawiania dźwiękiem. Ten retreat wyprzedał się w ciągu kilku dni — to dowód na magię, którą razem tworzymy.">Cztery transformujące dni wśród legendarnych czerwonych skał Sedony. Odkrywałyśmy święte miejsca vortexów, praktykowałyśmy jogę o wschodzie słońca przy Cathedral Rock i gromadziłyśmy się na wieczornych ceremoniach uzdrawiania dźwiękiem. Ten retreat wyprzedał się w ciągu kilku dni — to dowód na magię, którą razem tworzymy.</p>
+          <ul class="highlights-list" id="sedonaHighlights">
+            <li data-en="Vortex meditation sessions" data-pl="Medytacje przy vortexach">Medytacje przy vortexach</li>
+            <li data-en="Sunrise yoga at Cathedral Rock" data-pl="Joga o wschodzie słońca przy Cathedral Rock">Joga o wschodzie słońca przy Cathedral Rock</li>
+            <li data-en="Red rock hiking trails" data-pl="Wędrówki szlakami czerwonych skał">Wędrówki szlakami czerwonych skał</li>
+            <li data-en="Evening sound healing ceremony" data-pl="Wieczorna ceremonia uzdrawiania dźwiękiem">Wieczorna ceremonia uzdrawiania dźwiękiem</li>
+            <li data-en="Guided spiritual reflection" data-pl="Prowadzona refleksja duchowa">Prowadzona refleksja duchowa</li>
+          </ul>
+          <p class="soldout-notice" data-en="This retreat is complete. Sign up to our newsletter to be notified of future retreats." data-pl="Ten retreat się zakończył. Zapisz się do newslettera, aby dowiedzieć się o przyszłych retreatach.">Ten retreat się zakończył. Zapisz się do newslettera, aby dowiedzieć się o przyszłych retreatach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER CTA ===== -->
+  <section class="cta-band">
+    <h2 data-en="Don't Miss the Next One" data-pl="Nie Przegap Następnego">Nie Przegap Następnego</h2>
+    <p data-en="Spots fill quickly. Leave your details and we'll reach out as soon as new dates open up." data-pl="Miejsca zapełniają się szybko. Zostaw swoje dane, a skontaktujemy się z Tobą, gdy pojawią się nowe terminy.">Miejsca zapełniają się szybko. Zostaw swoje dane, a skontaktujemy się z Tobą, gdy pojawią się nowe terminy.</p>
+    <div class="btns">
+      <a href="contact.html" class="btn btn--primary" data-en="Get Notified" data-pl="Powiadom Mnie">Powiadom Mnie</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">Rise <span class="tilde">~</span> Shine <span class="tilde">~</span> Explore</a>
+          <p data-en="Nature and yoga retreats for Polish women in the USA." data-pl="Retreaty przyrodnicze i jogi dla Polek w USA.">Retreaty przyrodnicze i jogi dla Polek w USA.</p>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-title" data-en="Pages" data-pl="Strony">Strony</span>
+          <ul>
+            <li><a href="index.html"    data-en="Home"     data-pl="Strona Główna">Strona Główna</a></li>
+            <li><a href="retreats.html" data-en="Retreats" data-pl="Retreaty">Retreaty</a></li>
+            <li><a href="about.html"    data-en="About Us" data-pl="O Nas">O Nas</a></li>
+            <li><a href="gallery.html"  data-en="Gallery"  data-pl="Galeria">Galeria</a></li>
+            <li><a href="contact.html"  data-en="Contact"  data-pl="Kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-title" data-en="Contact" data-pl="Kontakt">Kontakt</span>
+          <p class="footer__contact-item"><a href="mailto:risenexplore@gmail.com">risenexplore@gmail.com</a></p>
+          <p class="footer__contact-item"><a href="tel:+17733704464">773-370-4464</a></p>
+          <p class="footer__contact-item"><a href="https://instagram.com/rise_shine_explore" target="_blank" rel="noopener">@rise_shine_explore</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy" data-en="© 2025 Rise Shine Explore. All rights reserved." data-pl="© 2025 Rise Shine Explore. Wszelkie prawa zastrzeżone.">© 2025 Rise Shine Explore. Wszelkie prawa zastrzeżone.</p>
+        <div class="footer__social">
+          <a href="https://instagram.com/rise_shine_explore" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:risenexplore@gmail.com">risenexplore@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/lang.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

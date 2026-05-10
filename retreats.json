@@ -1,0 +1,78 @@
+[
+  {
+    "id": "sedona-2026",
+    "location": "Sedona",
+    "park": "Arizona: Sedona",
+    "state": "Arizona",
+    "dateEN": "March 5–8, 2026",
+    "datePL": "5–8 marca 2026",
+    "month": 3,
+    "year": 2026,
+    "status": "soldout",
+    "descriptionEN": "Four transformative days among Sedona's legendary red rock formations. We explored sacred vortex sites, practiced sunrise yoga at Cathedral Rock, and gathered for evening sound healing ceremonies. This retreat sold out within days — a testament to the magic we create together.",
+    "descriptionPL": "Cztery transformujące dni wśród legendarnych czerwonych skał Sedony. Odkrywałyśmy święte miejsca vortexów, praktykowałyśmy jogę o wschodzie słońca przy Cathedral Rock i gromadziłyśmy się na wieczornych ceremoniach uzdrawiania dźwiękiem. Ten retreat wyprzedał się w ciągu kilku dni — to dowód na magię, którą razem tworzymy.",
+    "highlights": {
+      "en": ["Vortex meditation sessions", "Sunrise yoga at Cathedral Rock", "Red rock hiking trails", "Evening sound healing ceremony", "Guided spiritual reflection"],
+      "pl": ["Medytacje przy vortexach", "Joga o wschodzie słońca przy Cathedral Rock", "Wędrówki szlakami czerwonych skał", "Wieczorna ceremonia uzdrawiania dźwiękiem", "Prowadzona refleksja duchowa"]
+    },
+    "gradClass": "grad-sedona",
+    "image": "images/sedona1/sedona1-01.jpg"
+  },
+  {
+    "id": "zion-2026",
+    "location": "Zion",
+    "park": "Zion National Park",
+    "state": "Utah",
+    "dateEN": "May 14–17, 2026",
+    "datePL": "14–17 maja 2026",
+    "month": 5,
+    "year": 2026,
+    "status": "upcoming",
+    "descriptionEN": "Join us in the breathtaking canyons of Zion National Park. We'll hike through narrow slot canyons, practice yoga with towering canyon walls as our sacred backdrop, and spend evenings in deep reflection under a star-filled desert sky. Limited to 12 women.",
+    "descriptionPL": "Dołącz do nas w zapierających dech w piersiach kanionach Parku Narodowego Zion. Będziemy wędrować przez wąskie szczeliny skalne, praktykować jogę z majestatycznymi ścianami kanionu jako naszym sakralnym tłem i spędzać wieczory na głębokiej refleksji pod gwiazdami pustynnego nieba. Ograniczone do 12 kobiet.",
+    "highlights": {
+      "en": ["Narrows slot canyon hike", "Angels Landing trail (optional)", "Morning yoga in the canyon", "Stargazing & journaling", "Group intention-setting ceremony"],
+      "pl": ["Wędrówka Narrows przez szczelinę skalną", "Szlak Angels Landing (opcjonalnie)", "Poranna joga w kanionie", "Obserwacja gwiazd i journaling", "Grupowa ceremonia intencji"]
+    },
+    "gradClass": "grad-zion",
+    "image": "images/zion.jpg"
+  },
+  {
+    "id": "olympic-2026",
+    "location": "Olympic",
+    "park": "Olympic National Park",
+    "state": "Washington",
+    "dateEN": "June 11–14, 2026",
+    "datePL": "11–14 czerwca 2026",
+    "month": 6,
+    "year": 2026,
+    "status": "upcoming",
+    "descriptionEN": "Experience the ancient temperate rainforests, dramatic Pacific coastlines, and snow-capped peaks of Olympic National Park. A journey through one of America's most biodiverse landscapes — from sea to summit, with yoga, mindfulness, and deep nature connection woven throughout each day.",
+    "descriptionPL": "Doświadcz pradawnych lasów deszczowych strefy umiarkowanej, dramatycznych wybrzeży Pacyfiku i ośnieżonych szczytów Parku Narodowego Olympic. Podróż przez jeden z najbardziej bioróżnorodnych krajobrazów Ameryki — od morza po szczyt, z jogą, uważnością i głębokim połączeniem z naturą wplecionymi w każdy dzień.",
+    "highlights": {
+      "en": ["Hoh Rainforest immersion walk", "Sunrise yoga on Ruby Beach", "Coastal tide pool exploration", "Forest bathing (Shinrin-yoku)", "Mountain meadow meditation"],
+      "pl": ["Spacer immersyjny w lesie deszczowym Hoh", "Joga o wschodzie słońca na plaży Ruby Beach", "Eksploracja przybrzeżnych basenów pływowych", "Kąpiel leśna (Shinrin-yoku)", "Medytacja na górskiej polanie"]
+    },
+    "gradClass": "grad-olympic",
+    "image": "images/olympic.jpg"
+  },
+  {
+    "id": "tba-2026",
+    "location": "TBA",
+    "park": "Coming Soon",
+    "state": "",
+    "dateEN": "Fall 2026 — To Be Announced",
+    "datePL": "Jesień 2026 — Do ogłoszenia",
+    "month": 9,
+    "year": 2026,
+    "status": "tba",
+    "descriptionEN": "Our next adventure is being planned. We're scouting spectacular locations across the American West. Sign up to our newsletter to be the first to know when our next retreat is announced.",
+    "descriptionPL": "Planujemy kolejną przygodę. Poszukujemy spektakularnych lokalizacji na zachodzie Ameryki. Zapisz się do naszego newslettera, aby jako pierwsza dowiedzieć się o ogłoszeniu następnego retreatu.",
+    "highlights": {
+      "en": ["Location announcement coming soon", "Newsletter subscribers notified first", "Limited spots available"],
+      "pl": ["Wkrótce ogłoszenie lokalizacji", "Subskrybenci newslettera powiadomieni pierwsi", "Ograniczona liczba miejsc"]
+    },
+    "gradClass": "grad-tba",
+    "image": null
+  }
+]

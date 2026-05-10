@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria — Rise Shine Explore</title>
+  <meta name="description" content="Galeria zdjęć z retreatów Rise Shine Explore. Gallery from our nature and yoga retreats.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ---- Location section headers ---- */
+    .gallery-location-label {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 56px 0 24px;
+    }
+    .gallery-location-label:first-of-type { margin-top: 0; }
+    .gallery-location-label h3 {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      white-space: nowrap;
+    }
+    .gallery-location-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(196,112,79,.3), transparent);
+    }
+
+    /* ---- Coming-soon overlay on all items ---- */
+    .gallery-item .coming-soon-chip {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(250,247,242,.92);
+      color: var(--brown);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 30px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity var(--transition);
+      pointer-events: none;
+    }
+    .gallery-item:hover .coming-soon-chip { opacity: 1; }
+
+    /* ---- Instagram grid teaser ---- */
+    .ig-teaser {
+      background: var(--brown);
+      padding: clamp(60px, 8vw, 100px) var(--container-pad);
+      text-align: center;
+    }
+    .ig-teaser h2 { color: var(--offwhite); margin-bottom: 16px; }
+    .ig-teaser p  { color: var(--offwhite); opacity: .65; max-width: 520px; margin: 0 auto 36px; font-size: 1.02rem; }
+    .ig-handle {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: var(--terracotta-light);
+      font-style: italic;
+      display: block;
+      margin-bottom: 32px;
+      transition: opacity var(--transition);
+    }
+    .ig-handle:hover { opacity: .75; }
+
+    /* ---- Submit your photo CTA ---- */
+    .photo-cta {
+      background: var(--cream);
+      padding: 48px var(--container-pad);
+      text-align: center;
+      border-top: 1px solid rgba(196,112,79,.12);
+    }
+    .photo-cta p { max-width: 560px; margin: 0 auto 24px; font-size: 1rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo"><img src="logo.avif" alt="Rise Shine Explore" class="nav__logo-img"></a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html"    data-en="Home"     data-pl="Strona Główna">Strona Główna</a></li>
+        <li><a href="retreats.html" data-en="Retreats" data-pl="Retreaty">Retreaty</a></li>
+        <li><a href="about.html"    data-en="About Us" data-pl="O Nas">O Nas</a></li>
+        <li><a href="gallery.html"  data-en="Gallery"  data-pl="Galeria">Galeria</a></li>
+        <li><a href="contact.html"  data-en="Contact"  data-pl="Kontakt">Kontakt</a></li>
+      </ul>
+      <button class="nav__lang" id="langToggle">EN</button>
+      <button class="nav__hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <header class="page-hero">
+    <div class="page-hero__inner">
+      <span class="eyebrow" data-en="Our Moments" data-pl="Nasze Chwile">Nasze Chwile</span>
+      <h1 data-en="Gallery" data-pl="Galeria">Galeria</h1>
+      <p class="lead" data-en="A visual journey through the places we've been and the moments we've shared. Photos from our retreats coming soon." data-pl="Wizualna podróż przez miejsca, w których byłyśmy, i chwile, które razem przeżyłyśmy. Zdjęcia z naszych retreatów już wkrótce.">Wizualna podróż przez miejsca, w których byłyśmy, i chwile, które razem przeżyłyśmy. Zdjęcia z naszych retreatów już wkrótce.</p>
+    </div>
+  </header>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="section" aria-label="Galeria zdjęć">
+    <div class="container">
+
+      <!-- O'ahu -->
+      <div class="gallery-location-label">
+        <h3 data-en="O'ahu, Hawai'i — 2025" data-pl="O'ahu, Hawaje — 2025">O'ahu, Hawaje — 2025</h3>
+      </div>
+      <div class="gallery-grid" style="margin-bottom: 0;">
+        <div class="gallery-item span-2 tall">
+          <div class="gallery-item__bg"><img src="images/oahu/oahu-01.jpg" alt="O'ahu retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="O'ahu · Coastal Views" data-pl="O'ahu · Widoki na Ocean">O'ahu · Widoki na Ocean</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/oahu/oahu-02.jpg" alt="O'ahu retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Hiking Trail" data-pl="Szlak Górski">Szlak Górski</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/oahu/oahu-03.jpg" alt="O'ahu retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Group Connection" data-pl="Połączenie Grupowe">Połączenie Grupowe</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/oahu/oahu-04.jpg" alt="O'ahu retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Coastal Yoga" data-pl="Joga przy Oceanie">Joga przy Oceanie</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/oahu/oahu-05.jpg" alt="O'ahu retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Sunset" data-pl="Zachód Słońca">Zachód Słońca</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/oahu/oahu-06.jpg" alt="O'ahu retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Nature Immersion" data-pl="Zanurzenie w Naturę">Zanurzenie w Naturę</div>
+        </div>
+        <div class="gallery-item span-2">
+          <div class="gallery-item__bg"><img src="images/oahu/oahu-07.jpg" alt="O'ahu retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Together in the Wild" data-pl="Razem w Naturze">Razem w Naturze</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/oahu/oahu-08.jpg" alt="O'ahu retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Island Trail" data-pl="Szlak Wyspy">Szlak Wyspy</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/oahu/oahu-09.jpg" alt="O'ahu retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Sisterhood" data-pl="Siostrzeństwo">Siostrzeństwo</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/oahu/oahu-10.jpg" alt="O'ahu retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Moment of Joy" data-pl="Chwila Radości">Chwila Radości</div>
+        </div>
+      </div>
+
+      <!-- Sedona I -->
+      <div class="gallery-location-label">
+        <h3 data-en="Sedona, Arizona — Retreat I, 2025" data-pl="Sedona, Arizona — Retreat I, 2025">Sedona, Arizona — Retreat I, 2025</h3>
+      </div>
+      <div class="gallery-grid" style="margin-bottom: 0;">
+        <div class="gallery-item span-2 tall">
+          <div class="gallery-item__bg"><img src="images/sedona1/sedona1-01.jpg" alt="Sedona retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Cathedral Rock" data-pl="Cathedral Rock">Cathedral Rock</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona1/sedona1-02.jpg" alt="Sedona retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Red Rock Country" data-pl="Czerwone Skały">Czerwone Skały</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona1/sedona1-03.jpg" alt="Sedona retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Sunrise Yoga" data-pl="Poranna Joga">Poranna Joga</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona1/sedona1-04.jpg" alt="Sedona retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Meditation Circle" data-pl="Krąg Medytacji">Krąg Medytacji</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona1/sedona1-05.jpg" alt="Sedona retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Sound Healing" data-pl="Uzdrawianie Dźwiękiem">Uzdrawianie Dźwiękiem</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona1/sedona1-06.jpg" alt="Sedona retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Desert Trail" data-pl="Szlak Pustynny">Szlak Pustynny</div>
+        </div>
+        <div class="gallery-item span-2">
+          <div class="gallery-item__bg"><img src="images/sedona1/sedona1-07.jpg" alt="Sedona retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Sacred Vortex Site" data-pl="Miejsce Vortexu">Miejsce Vortexu</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona1/sedona1-08.jpg" alt="Sedona retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Group Moment" data-pl="Chwila Razem">Chwila Razem</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona1/sedona1-09.jpg" alt="Sedona retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Nature Walk" data-pl="Spacer w Naturze">Spacer w Naturze</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona1/sedona1-10.jpg" alt="Sedona retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Desert Sunset" data-pl="Pustynny Zachód">Pustynny Zachód</div>
+        </div>
+      </div>
+
+      <!-- Sedona Private -->
+      <div class="gallery-location-label">
+        <h3 data-en="Sedona, Arizona — Private Retreat, 2025" data-pl="Sedona, Arizona — Retreat Prywatny, 2025">Sedona, Arizona — Retreat Prywatny, 2025</h3>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item span-2 tall">
+          <div class="gallery-item__bg"><img src="images/sedona2/sedona2-01.jpg" alt="Sedona private retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Private Retreat · Sedona" data-pl="Retreat Prywatny · Sedona">Retreat Prywatny · Sedona</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona2/sedona2-02.jpg" alt="Sedona private retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Yoga Practice" data-pl="Praktyka Jogi">Praktyka Jogi</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona2/sedona2-03.jpg" alt="Sedona private retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Red Rock Landscape" data-pl="Krajobraz Czerwonych Skał">Krajobraz Czerwonych Skał</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona2/sedona2-04.jpg" alt="Sedona private retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Deep Connection" data-pl="Głębokie Połączenie">Głębokie Połączenie</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona2/sedona2-05.jpg" alt="Sedona private retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Evening Ceremony" data-pl="Ceremonia Wieczorna">Ceremonia Wieczorna</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona2/sedona2-06.jpg" alt="Sedona private retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Meditation" data-pl="Medytacja">Medytacja</div>
+        </div>
+        <div class="gallery-item span-2">
+          <div class="gallery-item__bg"><img src="images/sedona2/sedona2-07.jpg" alt="Sedona private retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Sacred Space" data-pl="Święta Przestrzeń">Święta Przestrzeń</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona2/sedona2-08.jpg" alt="Sedona private retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Inspired Walk" data-pl="Inspirujący Spacer">Inspirujący Spacer</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona2/sedona2-09.jpg" alt="Sedona private retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Circle of Women" data-pl="Krąg Kobiet">Krąg Kobiet</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item__bg"><img src="images/sedona2/sedona2-10.jpg" alt="Sedona private retreat"></div>
+          <div class="gallery-item__overlay"></div>
+          <div class="gallery-item__label" data-en="Until Next Time" data-pl="Do Następnego Razu">Do Następnego Razu</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== INSTAGRAM TEASER ===== -->
+  <div class="ig-teaser">
+    <h2 data-en="Follow the Journey" data-pl="Śledź Podróż">Śledź Podróż</h2>
+    <p data-en="We share moments, inspiration, and behind-the-scenes glimpses of retreat life on Instagram. Come find us." data-pl="Na Instagramie dzielimy się chwilami, inspiracjami i zakulisowymi spojrzeniami na życie retretowe. Znajdź nas.">Na Instagramie dzielimy się chwilami, inspiracjami i zakulisowymi spojrzeniami na życie retretowe. Znajdź nas.</p>
+    <a href="https://instagram.com/rise_shine_explore" target="_blank" rel="noopener" class="ig-handle">@rise_shine_explore</a>
+    <a href="https://instagram.com/rise_shine_explore" target="_blank" rel="noopener" class="btn btn--outline" data-en="View on Instagram" data-pl="Zobacz na Instagramie">Zobacz na Instagramie</a>
+  </div>
+
+  <!-- ===== SHARE YOURS ===== -->
+  <div class="photo-cta">
+    <p data-en="Were you on one of our retreats? Share your photos with us — we'd love to feature them here." data-pl="Czy byłaś na jednym z naszych retreatów? Podziel się z nami swoimi zdjęciami — chętnie je tutaj zamieścimy.">Czy byłaś na jednym z naszych retreatów? Podziel się z nami swoimi zdjęciami — chętnie je tutaj zamieścimy.</p>
+    <a href="mailto:risenexplore@gmail.com" class="btn btn--ghost" data-en="Send Your Photos" data-pl="Wyślij Swoje Zdjęcia">Wyślij Swoje Zdjęcia</a>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">Rise <span class="tilde">~</span> Shine <span class="tilde">~</span> Explore</a>
+          <p data-en="Nature and yoga retreats for Polish women in the USA." data-pl="Retreaty przyrodnicze i jogi dla Polek w USA.">Retreaty przyrodnicze i jogi dla Polek w USA.</p>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-title" data-en="Pages" data-pl="Strony">Strony</span>
+          <ul>
+            <li><a href="index.html"    data-en="Home"     data-pl="Strona Główna">Strona Główna</a></li>
+            <li><a href="retreats.html" data-en="Retreats" data-pl="Retreaty">Retreaty</a></li>
+            <li><a href="about.html"    data-en="About Us" data-pl="O Nas">O Nas</a></li>
+            <li><a href="gallery.html"  data-en="Gallery"  data-pl="Galeria">Galeria</a></li>
+            <li><a href="contact.html"  data-en="Contact"  data-pl="Kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-title" data-en="Contact" data-pl="Kontakt">Kontakt</span>
+          <p class="footer__contact-item"><a href="mailto:risenexplore@gmail.com">risenexplore@gmail.com</a></p>
+          <p class="footer__contact-item"><a href="tel:+17733704464">773-370-4464</a></p>
+          <p class="footer__contact-item"><a href="https://instagram.com/rise_shine_explore" target="_blank" rel="noopener">@rise_shine_explore</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy" data-en="© 2025 Rise Shine Explore. All rights reserved." data-pl="© 2025 Rise Shine Explore. Wszelkie prawa zastrzeżone.">© 2025 Rise Shine Explore. Wszelkie prawa zastrzeżone.</p>
+        <div class="footer__social">
+          <a href="https://instagram.com/rise_shine_explore" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:risenexplore@gmail.com">risenexplore@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/lang.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
